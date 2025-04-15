@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naib's Journey</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #4a90e2;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      color: #4a90e2;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.5rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Naib's Journey</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#journey">Story</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="home">
+      <h2>Welcome to Naib's Story</h2>
+      <p>Follow Naib as he learns to face his fears, guided by friendship and courage in a magical journey through the forest.</p>
+    </section>
+
+    <section id="journey">
+      <h2>The Journey</h2>
+      <div id="story"></div>
+    </section>
+
+    <section id="about">
+      <h2>About the Book</h2>
+      <p>This picture book was created to inspire children to embrace courage, face the unknown, and appreciate the beauty in their surroundings.</p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Naib's Journey | All rights reserved
+  </footer>
+
+  <script>
+    const storyData = [
+      {
+        title: "Naib's Home",
+        text: "Naib在自己的樹屋裡生活，很喜歡這裡的安靜，但有時他也會聽到外面森林裡傳來奇怪的聲音，讓他有點害怕。",
+        img: "image1.jpg"
+      },
+      {
+        title: "Fear at Night",
+        text: "有一天晚上，Naib聽到奇怪的聲音，他感到害怕。這讓他想起有個朋友告訴他：\"不怕黑暗，你會發現更多的美麗。\"",
+        img: "image2.jpg"
+      },
+      {
+        title: "Getting Ready for the Journey",
+        text: "Naib決定去找出聲音的來源，儘管心裡有點緊張，他告訴自己：\"勇敢一點，我一定可以。\"",
+        img: "image3.jpg"
+      },
+      {
+        title: "Lost in the Forest",
+        text: "在森林裡，Naib不小心迷路了。四周越來越陰暗，他的心跳加速，感到有點絕望。",
+        img: "image4.jpg"
+      },
+      {
+        title: "Meeting a Friend",
+        text: "就在Naib感到困惑時，小兔子出現了。兔子說：\"不怕，我會陪著你，勇氣來自朋友的支持。\"兩人開始一起走。",
+        img: "image5.jpg"
+      },
+      {
+        title: "Crossing the Small River",
+        text: "他們來到了一條湍急的小河，Naib覺得過不去。但兔子鼓勵他：\"如果你不嘗試，就永遠不知道能不能過去。\"Naib鼓起勇氣，成功渡過了小河。",
+        img: "image6.jpg"
+      },
+      {
+        title: "Going Through the Dark Cave",
+        text: "接下來，他們遇到了一個黑暗的洞穴。Naib猶豫了，但回想起兔子說的話，決定進去。雖然很暗，但他發現自己逐漸適應了黑暗，並成功走出來。",
+        img: "image7.jpg"
+      },
+      {
+        title: "Discovering the Strange Flowers",
+        text: "穿過洞穴後，Naib發現了一片美麗的花田。他驚訝於這個地方的美麗，並發現：\"原來，勇氣讓我看到了這麼多美好的東西。\"",
+        img: "image8.jpg"
+      },
+      {
+        title: "Returning Home",
+        text: "當他們回到家時，Naib覺得自己變得更加勇敢了。無論未來遇到什麼挑戰，他不再那麼害怕。",
+        img: "image9.jpg"
+      },
+      {
+        title: "The Power of Courage",
+        text: "Naib坐在樹屋裡，心裡充滿了力量。他知道，即使面對未知，勇氣會一直在他心中，指引他走向更美好的未來。",
+        img: "image10.jpg"
+      }
+    ];
+
+    const storySection = document.getElementById('story');
+
+    storyData.forEach(scene => {
+      const container = document.createElement('div');
+      const title = document.createElement('h3');
+      const text = document.createElement('p');
+      const img = document.createElement('img');
+
+      title.textContent = scene.title;
+      text.textContent = scene.text;
+      img.src = scene.img;
+      img.alt = scene.title;
+
+      container.appendChild(title);
+      container.appendChild(text);
+      container.appendChild(img);
+
+      storySection.appendChild(container);
+    });
+  </script>
+</body>
+</html>
